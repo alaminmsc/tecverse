@@ -1,6 +1,14 @@
 <?php
-    include_once("includes/head.php");
+    include("class/function.php");
+    session_start();
+    $id = $_SESSION['adminID'];
+    if($id == null){
+        header("location: index.php");
+    }
 
+?>
+<?php
+    include_once("includes/head.php");
 ?>
     <body class="sb-nav-fixed">
     <?php
@@ -12,21 +20,12 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
-                        <h1>Hello</h1>
+                        <?php 
+                            include_once('includes/contact_messg.php')                                                    ;
+                        ?>
                     </div>
                 </main>
-                <footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid px-4">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2021</div>
-                            <div>
-                                <a href="#">Privacy Policy</a>
-                                &middot;
-                                <a href="#">Terms &amp; Conditions</a>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
+            <?php include_once('includes/footer.php'); ?>
             </div>
         </div>
         <?php
